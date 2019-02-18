@@ -10,7 +10,7 @@ const url = "https://www.virustotal.com/vtapi/v2/url/report?apikey=9b34138c48b8c
   headers: {
     'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
     'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Origin': 'http://lvh.me:1111',
+    'Access-Control-Allow-Origin': 'http://creative2.thomasgalorath.software',
   }})
     .then(function(response) {
       // return response.json();
