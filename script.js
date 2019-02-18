@@ -24,21 +24,23 @@ const url = "https://pokeapi.co/api/v2/pokemon/" + value;
       results += '<img src=' + json.sprites.front_default+'>';
       results += '<img src=' + json.sprites.back_default+'>';
 
-      results += '<h2>Pokemons Element ';
+      results += '<h2>Pokemons Element: </h2> <ul>';
       for (let i =0; i < json.types.length; i ++){
-        results += json.types[i].type.name + " ";
+        results += "<li>" + json.types[i].type.name + " </li>";
       }
-      results += "</h2>"
+      results += "</ul>"
 
-      results += '<h2>Pokemons Abilities ';
+      results += '<h2>Pokemons Abilities: </h2> <ul>';
       for (let i =0; i < json.abilities.length; i ++){
-        results += json.abilities[i].ability.name + " ";
+        results += "<li>" + json.abilities[i].ability.name + " </li>";
       }
-      results += "</h2>" 
-
+      results += "</ul>"
+      title += "<div class='title'>"
       title += "<h1>"
-      title += value + " Pokedex: " + json.id;
+      title += value.charAt(0).toUpperCase() + value.slice(1);
       title += "</h1>";
+      title += "<h1> Pokedex: " + json.id + "</h1>"
+      title += "</div>"
       console.log(results)
       document.getElementById("pokeResults").innerHTML = results;
       document.getElementById("pokeTitle").innerHTML = title;
