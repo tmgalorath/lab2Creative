@@ -4,7 +4,7 @@ document.getElementById("weatherSubmit").addEventListener("click", function(even
   if (value === "")
     return;
   console.log(value);
-const url = "https://proapi.whitepages.com/3.1/phone?api_key=da664fde07df4de1851e293617bbcdbd&phone=7029279303"
+const url = "https://pokeapi.co/api/v2/pokemon/ditto/"
 
   fetch(url, {
   headers: {
@@ -12,7 +12,7 @@ const url = "https://proapi.whitepages.com/3.1/phone?api_key=da664fde07df4de1851
     'Access-Control-Allow-Methods': 'GET, POST',
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Origin': '*',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
   }})
     .then(function(response) {
       // return response.json();
