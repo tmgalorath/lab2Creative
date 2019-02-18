@@ -1,10 +1,10 @@
-document.getElementById("weatherSubmit").addEventListener("click", function(event) {
+function pokemonHandler() {
   event.preventDefault
-  const value = document.getElementById("weatherInput").value;
+  const value = document.getElementById("pokemonName").value;
   if (value === "")
     return;
   console.log(value);
-const url = "https://pokeapi.co/api/v2/pokemon/ditto/"
+const url = "https://pokeapi.co/api/v2/pokemon/" + value;
 
   fetch(url, {
   headers: {
@@ -15,19 +15,34 @@ const url = "https://pokeapi.co/api/v2/pokemon/ditto/"
     'Accept': 'application/json',
   }})
     .then(function(response) {
-      // return response.json();
+      return response.json();
       console.log(response.json())
     }).then(function(json) {
       let results = "";
-      results += '<h2>Scan Successfull, Scan ID: ' + json.scan_id + "</h2>";
-      results += '<h2>URL Scanned: ' + json.url + "</h2>";
-      // for (let i = 0; i < json.weather.length; i++) {
-      //   results += '<img src="http://openweathermap.org/img/w/' + json.weather[i].icon + '.png"/>';
-      // }
-      results += "<p>"
-      results += json.total + " different scans run and " + json.positives + " vulnerabilities and malware was found."
-      results += "</p>";
-      document.getElementById("weatherResults").innerHTML = results;
+      let title = "";
+      results += '<h2>Pokemon Pictures </h2>';
+      results += '<img src=' + json.sprites.front_default+'>';
+      results += '<img src=' + json.sprites.back_default+'>';
+
+      results += '<h2>Pokemons Element ';
+      for (let i =0; i < json.types.length; i ++){
+        results += json.types[i].type.name + " ";
+      }
+      results += "</h2>"
+
+      results += '<h2>Pokemons Abilities ';
+      for (let i =0; i < json.abilities.length; i ++){
+        results += json.abilities[i].ability.name + " ";
+      }
+      results += "</h2>" 
+
+      title += "<h1>"
+      title += value + " Pokedex: " + json.id;
+      title += "</h1>";
+      console.log(results)
+      document.getElementById("pokeResults").innerHTML = results;
+      document.getElementById("pokeTitle").innerHTML = title;
+      document.getElementById("squirtsquirt").click();
     });
 
   // const url2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + value + ", US&units=imperial" + "&APPID=427a95156f5984bf9f36c699fb9b67c0";
@@ -49,4 +64,4 @@ const url = "https://pokeapi.co/api/v2/pokemon/ditto/"
   //     forecast += "</tbody></table>"
   //     document.getElementById("forecastResults").innerHTML = forecast;
   //   });
-});
+}

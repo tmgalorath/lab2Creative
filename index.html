@@ -23,18 +23,43 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
   <div class="container">
-    <h1>Virus Total</h1>
+    <h1>Pokemnon</h1>
   <hr class ="new2">
 </br>
-    <label>Enter a valid URL</label>
-    <input id="weatherInput" type="text"></input><br />
-    <button id="weatherSubmit" type="button" class="btn btn-success btn-lg btn-block">Get Weather</button>
-    <div id="weatherResults" class ="inner-div">
+    <label>Enter a valid pokemon name</label>
+    <input id="pokemonName" type="text"></input><br />
+    <button id="pokeSubmit" onclick="pokemonHandler()" type="button" class="btn btn-success btn-lg btn-block">Get Your Pokemon</button>
+    <!-- <div id="pokeResults" class ="inner-div">
     </div>
-  </div>
+  </div> -->
 
   <div id="forecastResults">
   </div>
+
+  <button style="visibility:hidden;" id="squirtsquirt" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+        <div id="pokeTitle"></div></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="pokeResults" class="inner-div">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>
