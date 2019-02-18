@@ -4,9 +4,16 @@ document.getElementById("weatherSubmit").addEventListener("click", function(even
   if (value === "")
     return;
   console.log(value);
-const url = "https://www.virustotal.com/vtapi/v2/url/report?apikey=9b34138c48b8cae58ed7b7efceca51aafbb521a2d5f491a7610b5f106a0d17c8&resource=https://byu.edu"
+const url = "https://proapi.whitepages.com/3.1/phone?api_key=da664fde07df4de1851e293617bbcdbd&phone=7029279303"
 
-  fetch(url)
+  fetch(url, {
+  headers: {
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+    'Access-Control-Allow-Methods': 'GET, POST',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Origin': '*',
+    'Accept': 'application/json'
+  }})
     .then(function(response) {
       // return response.json();
       console.log(response.json())
