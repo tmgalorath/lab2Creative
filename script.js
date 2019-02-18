@@ -6,12 +6,7 @@ document.getElementById("weatherSubmit").addEventListener("click", function(even
   console.log(value);
 const url = "https://www.virustotal.com/vtapi/v2/url/report?apikey=9b34138c48b8cae58ed7b7efceca51aafbb521a2d5f491a7610b5f106a0d17c8&resource=https://byu.edu"
 
-  fetch(url, {
-  headers: {
-    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Origin': 'http://creative2.thomasgalorath.software',
-  }})
+  fetch(url)
     .then(function(response) {
       // return response.json();
       console.log(response.json())
